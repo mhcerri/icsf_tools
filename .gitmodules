@@ -1,0 +1,3 @@
+[submodule "ock"]
+	path = ock
+	url = https://github.com/joylatten/opencryptoki.git
