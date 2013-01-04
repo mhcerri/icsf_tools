@@ -12,6 +12,7 @@ TARGETS=icsf_create_token \
 		icsf_list_tokens \
 		icsf_create_object \
 		icsf_list_objects \
+		icsf_destroy_object \
 		icsf_sasl
 
 all: $(TARGETS)
@@ -32,6 +33,9 @@ icsf_create_object: icsf_create_object.o $(DEPS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 icsf_list_objects: icsf_list_objects.o $(DEPS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+icsf_destroy_object: icsf_destroy_object.o $(DEPS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 icsf_sasl: icsf_sasl.o $(DEPS)

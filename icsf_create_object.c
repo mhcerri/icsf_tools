@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     LDAP *ld = NULL;
     char *uri, *dn, *pw;
     char *token_name = NULL;
-    char handle[ICSF_HANDLE_LEN];
+    struct icsf_object_record obj;
 
     char type = ICSF_TOKEN_OBJECT;
 
@@ -45,9 +45,11 @@ int main(int argc, char *argv[])
         goto cleanup;
 
     OCK_LOG_DEBUG("Creating object\n");
-    if ((rc = icsf_create_object(ld, token_name, type, attrs, attrs_len,
-                                handle, sizeof(handle))))
+    if ((rc = icsf_create_object(ld, token_name, type, attrs, attrs_len, &obj)))
         goto cleanup;
+
+    OCK_LOG_DEBUG("Object created: token_name=\"%s\", seq=%lu, id=%c\n",
+                  obj.token_name, obj.sequence, obj.id);
 
 cleanup:
     if (rc)
