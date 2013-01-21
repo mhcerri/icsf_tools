@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
             printf("Token #:      %lu\nToken name:   %s\nManufacturer: %s\n"
                    "Model:        %s\nSerial:       %s\nLast changed: %s %s\n"
                    "Read-only:    %s\n\n",
-                   token_num++, records[i].name, records[i].manufacturer,
+                   (long unsigned int) token_num++, records[i].name, records[i].manufacturer,
                    records[i].model, records[i].serial,
                    records[i].date, records[i].time,
                    ICSF_IS_TOKEN_READ_ONLY(records[i].flags) ? "yes" : "no");
