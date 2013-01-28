@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         goto cleanup;
 
     OCK_LOG_DEBUG("Initializing token\n");
-    if ((rc = icsf_create_token(ld, token_name, manufacturer_id, model,
+    if ((rc = icsf_create_token(ld, NULL, token_name, manufacturer_id, model,
                                 serial_number)))
         goto cleanup;
 

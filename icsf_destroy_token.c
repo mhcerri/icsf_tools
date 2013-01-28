@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
         goto cleanup;
 
     OCK_LOG_DEBUG("Destroying token\n");
-    if ((rc = icsf_destroy_token(ld, token_name)))
+    if ((rc = icsf_destroy_token(ld, NULL, token_name)))
         goto cleanup;
 
 cleanup:

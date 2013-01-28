@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
         goto cleanup;
 
     OCK_LOG_DEBUG("Creating object\n");
-    if ((rc = icsf_create_object(ld, token_name, attrs, attrs_len, &obj)))
+    if ((rc = icsf_create_object(ld, NULL, token_name, attrs, attrs_len, &obj)))
         goto cleanup;
 
     OCK_LOG_DEBUG("Object created: token_name=\"%s\", seq=%lu, id=%c\n",

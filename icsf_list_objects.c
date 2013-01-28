@@ -37,8 +37,9 @@ int main(int argc, char *argv[])
     do {
         records_len = sizeof(records)/sizeof(records[0]);
 
-        if ((rc = icsf_list_objects(ld, token_name, previous, records,
-                                    &records_len, 0)))
+        rc = icsf_list_objects(ld, NULL,token_name, previous, records,
+                               &records_len, 0);
+	if (ICSF_RC_IS_ERROR(rc))
             goto cleanup;
 
         for (i = 0; i < records_len; i++) {
