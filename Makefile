@@ -3,7 +3,8 @@ CC=gcc
 CFLAGS=-O0 -g -Wall -Werror \
       -I. \
       -I./ock/usr/lib/pkcs11/icsf_stdll/ \
-	  -I./ock/usr/include/pkcs11/
+      -I./ock/usr/include/pkcs11/ \
+      -I./ock/usr/lib/pkcs11/common/
 LDFLAGS=-lldap
 DEPS=util.o \
      ./ock/usr/lib/pkcs11/icsf_stdll/icsf.o
@@ -14,6 +15,8 @@ TARGETS=icsf_create_token \
 		icsf_list_objects \
 		icsf_destroy_object \
 		icsf_gen_secret_key \
+		icsf_secret_key_encrypt \
+		icsf_secret_key_encrypt_chaining \
 		icsf_sasl
 
 all: $(TARGETS)
@@ -40,6 +43,12 @@ icsf_destroy_object: icsf_destroy_object.o $(DEPS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 icsf_gen_secret_key: icsf_gen_secret_key.o $(DEPS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+icsf_secret_key_encrypt: icsf_secret_key_encrypt.o $(DEPS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+icsf_secret_key_encrypt_chaining: icsf_secret_key_encrypt_chaining.o $(DEPS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 icsf_sasl: icsf_sasl.o $(DEPS)
