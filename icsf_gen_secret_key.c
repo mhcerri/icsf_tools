@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 #ifndef SSL
     CK_OBJECT_CLASS key_class = CKO_SECRET_KEY;
     CK_KEY_TYPE key_type = CKK_AES;
-    CK_ULONG key_len = 8;
+    CK_ULONG key_len = 16;
     CK_BBOOL is_token_obj = TRUE;
     CK_ATTRIBUTE attrs[] = {
         { CKA_CLASS, &key_class, sizeof(key_class) },
