@@ -45,8 +45,9 @@ int main(int argc, char *argv[])
         for (i = 0; i < records_len; i++) {
             printf("Object #:      %lu\nToken name:    %s\n"
                    "Sequence:      %lu\nID:            %c\n\n",
-                   object_num++, records[i].token_name, records[i].sequence,
-                   records[i].id);
+                   (long unsigned int) object_num++, records[i].token_name,
+                   records[i].sequence, records[i].id);
+
         }
         if (records_len)
             previous = &records[records_len - 1];
